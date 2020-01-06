@@ -53,7 +53,7 @@ router.get('/:id/exercises', restricted, (req, res) => {
 router.post('/', restricted, (req, res) => {
     const input = req.body;
 
-    if(input.name && input.description) {
+    if(input.name && input.description && input.user_id) {
         Workouts.add(input)
         .then(workout => {
             res.status(201).json(workout)
@@ -63,7 +63,7 @@ router.post('/', restricted, (req, res) => {
             res.status(500).json({message: "failed to create a new workout"})
         })
     } else {
-        res.status(400).json({message: "please make sure you fill out the name and the description"})
+        res.status(400).json({message: "please make sure you fill out all of the required fields"})
     }
   
   
@@ -73,7 +73,7 @@ router.post('/', restricted, (req, res) => {
 router.put('/:id', restricted, (req, res) => {
     const id = req.params.id
     const input = req.body
-    if (input.name || input.description) {
+    if (input.name || input.description || input.user_id) {
         Workouts.update(id, input)
         .then ( id => {
             if (id) {
