@@ -34,7 +34,7 @@ exports.up = function(knex) {
       .inTable('workout')
 
   })
-  .createtable('exercise', tbl => {
+  .createTable('exercise', tbl => {
       tbl.increments()
       tbl.string('name', 128)
       .notNullable()
