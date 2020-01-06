@@ -1,4 +1,8 @@
 const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
+require('dotenv').config() // means we can create a dotenv file
+
 
 const apiRouter = require('./api-router.js')
 
