@@ -34,6 +34,24 @@ exports.up = function(knex) {
       .inTable('workout')
 
   })
+// if its less than a to-do list
+// also, use date instead of integer
+
+//   .createTable('workout', tbl => {
+//     tbl.increments()
+//     tbl.string('name', 128)
+//     .notNullable()
+//     tbl.string('description', 500)
+//     .notNullable()
+//     tbl.integer('user_id')
+//     .unsigned()
+//     .notNullable()
+//     .references('id')
+//     .inTable('users')
+//     tbl.date('date')
+//     .notNullable()
+
+// })
   .createTable('exercise', tbl => {
       tbl.increments()
       tbl.string('name', 128)

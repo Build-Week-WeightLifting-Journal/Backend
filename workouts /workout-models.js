@@ -3,6 +3,7 @@ const db = require('../database/db-config.js')
 module.exports = {
     add, 
     find,
+    findExercises,
     findById,
     update,
     remove
@@ -18,6 +19,12 @@ function findById(id) {
       .where({ id })
       .first();
   }
+function findExercises(id){
+    return db('exercise as e')
+    .where({workout_id: id})
+    .join('workout as w', 'w.id', 'e.workout_id')
+    .select('e.id','e.name', 'e.sets', 'e.reps', 'e.workout_id')
+}
 
 function add(workout) {
     return db('workout')
