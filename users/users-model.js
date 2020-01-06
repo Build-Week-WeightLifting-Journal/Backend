@@ -6,6 +6,7 @@ module.exports = {
   findBy,
   findById,
   findWorkouts
+  // findWorkoutsByDate
 };
 
 function find() {
@@ -41,3 +42,14 @@ function findWorkouts(id){
   .join('users as u', 'u.id', 'w.user_id')
   .select('w.id','w.name', 'w.description', 'w.user_id')
 }
+
+//user id 
+// function findWorkoutsByDate(date){
+//   return db('user_workouts_by_date as uw')
+//   .where({workout_id: id, user_id: id, date_id: id})
+//   .join('users as u', 'u.id', 'uw.user_id')
+//   .join('workout as w', 'w.id', 'uw.workout_id')
+//   .join('dates as d', 'd.id', 'uw.date_id')
+//   .select('uw.user_id', 'd.dates', 'w.name', 'w.description')
+// }
+
