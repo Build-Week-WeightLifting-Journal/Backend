@@ -73,7 +73,7 @@ router.post('/', restricted, (req, res) => {
 router.put('/:id', restricted, (req, res) => {
     const id = req.params.id
     const input = req.body
-    if (input.name || input.description || input.user_id) {
+    if (input.name || input.description) {
         Workouts.update(id, input)
         .then ( id => {
             if (id) {
