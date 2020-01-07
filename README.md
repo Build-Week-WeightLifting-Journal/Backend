@@ -22,7 +22,7 @@ Link: https://weightlifting-journal15.herokuapp.com/api/auth/register
 
 Link: https://weightlifting-journal15.herokuapp.com/api/auth/login
 
-### Examply Entry:
+#### Example Entry:
 
 ```
 {
