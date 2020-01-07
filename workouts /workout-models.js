@@ -28,7 +28,7 @@ function findExercises(id){
 
 function add(workout) {
     return db('workout')
-    .insert(workout)
+    .insert(workout, 'id')
     .then(ids => {
         const [id] = ids;
         return findById(id);
