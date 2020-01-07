@@ -18,11 +18,11 @@ exports.up = function(knex) {
 //       tbl.string('description', 500)
 //       .notNullable()
 //   })
-  .createTable('dates', tbl => {
-      tbl.increments()
-      tbl.integer('date')
-      .notNullable()
-  })
+  // .createTable('dates', tbl => {
+  //     tbl.increments()
+  //     tbl.integer('date')
+  //     .notNullable()
+  // })
 
 //   .createTable('user_workouts_by_date', tbl => {
 //       tbl.integer('date_id')
@@ -83,7 +83,7 @@ exports.up = function(knex) {
 exports.down = function(knex) {
     return knex.schema
     .dropTableIfExists('exercise')
-    .dropTableIfExists('date')
     .dropTableIfExists('workout')
+    // .dropTableIfExists('dates')
     .dropTableIfExists('users')
 };
