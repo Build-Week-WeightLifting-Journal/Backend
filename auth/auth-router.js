@@ -19,7 +19,7 @@ router.post('/register', (req, res) => {
     })
     .catch(error => {
         console.log(error)
-      res.status(500).json(error);
+      res.status(500).json(error.message);
     });
 });
 
@@ -42,7 +42,7 @@ router.post('/login', (req, res) => {
       }
     })
     .catch(error => {
-      res.status(500).json(error);
+      res.status(500).json(error.message);
     });
 });
 
