@@ -16,7 +16,7 @@ function findById(id) {
 
 function add(exercise) {
     return db('exercise')
-    .insert(exercise)
+    .insert(exercise, 'id')
     .then(ids => {
         const [id] = ids;
         return findById(id);
