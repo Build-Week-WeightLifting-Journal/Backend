@@ -1,8 +1,9 @@
 # Backend
 
-## Make sure to replace localhost:// with the Link to the API: 
+## Every endpoint starts with the following: 
 
 https://weightlifting-journal15.herokuapp.com/
+
 
 
 ### Signup 
@@ -41,6 +42,7 @@ Link:  https://weightlifting-journal15.herokuapp.com/api/workouts/
 {
 	"name": "My Upper Shoulder Workout",
 	"description": "Description goes here",
+    "date": 19960811,
 	"user_id": 2
 	
 }
@@ -48,7 +50,7 @@ Link:  https://weightlifting-journal15.herokuapp.com/api/workouts/
 
 ### Get a workout by User ID
 
-Link: https://weightlifting-journal15.herokuapp.com/api/user/2/workouts
+Link: https://weightlifting-journal15.herokuapp.com/api/user/:user_id/workouts
 
 #### Example Response: 
 
@@ -58,7 +60,8 @@ Link: https://weightlifting-journal15.herokuapp.com/api/user/2/workouts
     "id": 3,
     "name": "Leg Day Workout",
     "description": "Description here",
-    "user_id": 2
+    "user_id": 2,
+    "date": "1996-08-11T00:00:00.000Z"
   }
 
 ```
@@ -68,21 +71,40 @@ Link: https://weightlifting-journal15.herokuapp.com/api/user/2/workouts
 
 
 
-Link: https://weightlifting-journal15.herokuapp.com/api/workouts/2
+Link: https://weightlifting-journal15.herokuapp.com/api/workouts/:id
 
 #### Example Response: 
 
 ```{
   "id": 2,
   "name": "Chest Day ",
-  "description": "Description Here"
+  "description": "Description Here",
+  "date": "1996-08-11T00:00:00.000Z"
 }
+```
+
+### Get User Workout By Date
+
+Link: https://weightlifting-journal15.herokuapp.com/api/user/:user_id/date/1996-08-11T00:00:00.000Z
+
+### Example Response: 
+
+```
+
+  {
+    "id": 3,
+    "user_id": 1,
+    "name": "Workout 1",
+    "description": "heroku workout description test",
+    "date": "1996-08-11T00:00:00.000Z"
+  }
+
 ```
 
 
 ### Edit Workout by ID
 
-Link: https://weightlifting-journal15.herokuapp.com/api/workouts/2
+Link: https://weightlifting-journal15.herokuapp.com/api/workouts/:id
 
 #### Example Response:
 ```
@@ -125,7 +147,7 @@ Link:  https://weightlifting-journal15.herokuapp.com/api/exercises
 
 ### Get Exercises by Workout ID
 
-Link: https://weightlifting-journal15.herokuapp.com/api/workouts/1/exercises
+Link: https://weightlifting-journal15.herokuapp.com/api/workouts/:workout_id/exercises
 
 #### Example Response: 
 
@@ -152,7 +174,7 @@ Link: https://weightlifting-journal15.herokuapp.com/api/workouts/1/exercises
 
 ### Get Exercises by ID
 
-Link: https://weightlifting-journal15.herokuapp.com/api/exercises/2
+Link: https://weightlifting-journal15.herokuapp.com/api/exercises/:id
 
 #### Example Response: 
 
@@ -168,7 +190,7 @@ Link: https://weightlifting-journal15.herokuapp.com/api/exercises/2
 
 ### Edit Exercises by ID
 
-Link: https://weightlifting-journal15.herokuapp.com/api/exercises/2
+Link: https://weightlifting-journal15.herokuapp.com/api/exercises/:id
 
 #### Example Entry: 
 
