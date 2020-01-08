@@ -6,19 +6,21 @@ module.exports = {
     findExercises,
     findById,
     update,
-    remove
+    remove,
 }
 
 function find() {
     return db('workout').select("id", "name", "description")
 }
   
-function findById(id) {
+function findById(id,) {
     return db("workout")
-      .select("id", "name", "description")
-      .where({ id })
+      .select("id", "name", "description", "date")
+      .where({ id})
       .first();
   }
+
+
 function findExercises(id){
     return db('exercise as e')
     .where({workout_id: id})
@@ -48,3 +50,13 @@ function update(id, changes) {
       .where('id', id)
       .del();
   }
+
+
+
+
+
+
+
+
+
+  

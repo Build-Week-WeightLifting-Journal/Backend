@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 const Workouts = require('./workout-models.js');
-// const restricted = require('../auth/restricted-middleware.js')
 const restricted = require("../auth/restricted-middleware.js");
 
 
@@ -18,7 +17,7 @@ router.get('/', restricted,  (req, res) => {
 });
 
 router.get('/:id', restricted, (req, res) => {
-    const id = req.params.id
+    const id = req.params.id;
     Workouts.findById(id)
     .then( id => {
         if (id) {
@@ -33,6 +32,8 @@ router.get('/:id', restricted, (req, res) => {
     })
 })
 
+
+
 router.get('/:id/exercises', restricted, (req, res) => {
     const id = req.params.id;
     Workouts.findExercises(id)
@@ -40,12 +41,12 @@ router.get('/:id/exercises', restricted, (req, res) => {
       if(id){
         res.status(200).json(id)
       } else {
-        res.status(404).json({message: "please enter a valid id"})
+        res.status(404).json({message: "please enter a valid workout id"})
       }
     })
     .catch(error => {
       console.log(error)
-      res.status(500).json({error: "error getting the steps by id"})
+      res.status(500).json({error: "error getting the exercises"})
     })
   })
 
@@ -53,7 +54,7 @@ router.get('/:id/exercises', restricted, (req, res) => {
 router.post('/', restricted, (req, res) => {
     const input = req.body;
 
-    if(input.name && input.description && input.user_id) {
+    if(input.name && input.description && input.user_id && input.date) {
         Workouts.add(input)
         .then(workout => {
             res.status(201).json(workout)
@@ -107,6 +108,9 @@ router.delete('/:id', restricted, (req, res) => {
         res.status(500).json({ error: "The workout could not be removed" })
     })
 })
+
+
+
 
 
 module.exports = router;

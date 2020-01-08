@@ -5,8 +5,8 @@ module.exports = {
   find,
   findBy,
   findById,
-  findWorkouts
-  // findWorkoutsByDate
+  findWorkouts,
+  findByDate
 };
 
 function find() {
@@ -29,27 +29,20 @@ function findById(id) {
     .first();
 }
 
-// function findWorkouts(id){
-//   return db('exercise as e')
-//   .where({workout_id: id})
-//   .join('workout as w', 'w.id', 'e.workout_id')
-//   .select('e.id','e.name', 'e.sets', 'e.reps', 'e.workout_id')
-// }
 
 function findWorkouts(id){
   return db('workout as w')
   .where({user_id: id})
   .join('users as u', 'u.id', 'w.user_id')
-  .select('w.id','w.name', 'w.description', 'w.user_id')
+  .select('w.id','w.name', 'w.description', 'w.user_id', 'w.date')
 }
 
-//user id 
-// function findWorkoutsByDate(date){
-//   return db('user_workouts_by_date as uw')
-//   .where({workout_id: id, user_id: id, date_id: id})
-//   .join('users as u', 'u.id', 'uw.user_id')
-//   .join('workout as w', 'w.id', 'uw.workout_id')
-//   .join('dates as d', 'd.id', 'uw.date_id')
-//   .select('uw.user_id', 'd.dates', 'w.name', 'w.description')
-// }
+  
+function findByDate(id,date) {
+  return db("workout")
+    .select("id", "user_id","name", "description", "date")
+    .where({user_id:id,date})
+}
+
+
 
