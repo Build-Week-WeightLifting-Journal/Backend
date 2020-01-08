@@ -42,7 +42,7 @@ Link:  https://weightlifting-journal15.herokuapp.com/api/workouts/
 {
 	"name": "My Upper Shoulder Workout",
 	"description": "Description goes here",
-    "date": 19960811,
+  "date": 19960811,
 	"user_id": 2
 	
 }
