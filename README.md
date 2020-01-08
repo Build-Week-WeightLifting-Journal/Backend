@@ -84,7 +84,7 @@ Link: https://weightlifting-journal15.herokuapp.com/api/workouts/2
 
 Link: https://weightlifting-journal15.herokuapp.com/api/workouts/2
 
-#### Example Response
+#### Example Response:
 ```
 {
   "id": 2,
@@ -98,7 +98,7 @@ Note: You can edit either name, or description here (both are not required for a
 
 Link: Link: https://weightlifting-journal15.herokuapp.com/api/workouts/:id
 
-#### Example Response 
+#### Example Response:
 
 ```
 {
@@ -170,7 +170,7 @@ Link: https://weightlifting-journal15.herokuapp.com/api/exercises/2
 
 Link: https://weightlifting-journal15.herokuapp.com/api/exercises/2
 
-### Example Entry: 
+#### Example Entry: 
 
 ```
 {
@@ -187,7 +187,7 @@ Note: You can edit either name, sets, reps, or weight here (all are not required
 
 Link: https://weightlifting-journal15.herokuapp.com/api/exercises/:id
 
-### Example Response: 
+#### Example Response: 
 
 ```
 {
