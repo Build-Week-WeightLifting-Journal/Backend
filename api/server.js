@@ -9,7 +9,7 @@ const server = express();
 
 
 server.get('/', (req, res) => {
-  res.send({api: "Last BW Server Check"});
+  res.send("Last BW Sanity Check :)");
 });
 
 server.use(express.json());

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const Exercises = require('./exercise-model.js');
+const Exercises = require('./exercise-models.js');
 const restricted = require("../auth/restricted-middleware.js");
 
 
