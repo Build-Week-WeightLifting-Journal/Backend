@@ -6,7 +6,7 @@ describe('The Workout Model', () => {
     
     beforeEach(async () => {
         //wipe db
-        // await db('workout').del();
+        await db('workout').del();
         await db('users').del();
     })
     describe('the add function', () => {
@@ -24,21 +24,25 @@ describe('The Workout Model', () => {
 
     })
 
-    // describe('the delete function', () => {
-    //     it('should delete a workout', async ()=> {
-    //         await Workouts.add({date: 19960809, name: 'My favorite workout about to be deleted', description: 'description goes here', user_id: 1})
-    //         await workouts.remove(1);
+    describe('the delete function', () => {
 
-    //         const CarData = await db('workout')
-    //         expect(CarData).toHaveLength(2)
-    //     })
+        it('should resolve to a newly deleted workout', async () => {
+            //test setup
+            const workoutData = {date: 19960809, name: 'My favorite chest workout', description: 'description goes here', user_id: 1}
+            const workout = await Workouts.remove(workoutData);
 
-    //     it('should resolve to a newly delete car', async () => {
-    //         //test setup
-    //         const carData = {make: "mazda", model: "3", year: 1990}
-    //         const car = await Cars.remove(carData);
+            expect(workout).toEqual(0)
+        })
+    })
 
-    //         expect(car).toEqual(0)
+    // describe('the edit function', () => {
+
+    //     it('should resolve to a newly edited workout', async () => {
+    //         const workoutData = {date: 19960809, name: 'My favorite chest workout', description: 'description goes here', user_id: 1}
+    //         const workoutData2 = {date: 19960809, name: 'My second favorite chest workout', description: 'description goes here', user_id: 1}
+    //         const workout = await Workouts.update(workoutData.name).to(workoutData2.name)
+
+    //         expect(workout[0].name).toBe('My second favorite chest workout')
     //     })
     // })
 })
