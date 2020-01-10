@@ -24,6 +24,7 @@ exports.up = function(knex) {
     .notNullable()
     .references('id')
     .inTable('users')
+    .onDelete("CASCADE")
 
 })
 
@@ -46,6 +47,7 @@ exports.up = function(knex) {
       .notNullable()
       .references('id')
       .inTable('workout')
+      .onDelete('CASCADE')
   })
 
   
